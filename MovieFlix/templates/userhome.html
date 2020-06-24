@@ -1,0 +1,67 @@
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+          background-image: url('../static/images/enterprise1.jpg');
+          background-size: 100% 100%;
+        }
+        #welcome{
+          text-align:center;
+          font-weight:bold;
+          font-size:400%;
+          width:100%;
+          color: #ccc;
+        }
+        #mf{
+          color:maroon;
+          font-familt:verdana;
+        }
+
+        a {
+          background-color: red;
+          color: maroon;
+          padding: 1em 1.5em;
+          text-decoration: none;
+          text-transform: uppercase;
+        }
+
+        a:hover {
+          background-color: #555;
+        }
+
+        a:active {
+          background-color: black;
+        }
+
+        a:visited {
+          background-color: #ccc;
+        }
+
+        #hrefs{
+          text-align: center;
+          margin-top: 20%;
+        }
+        #notice{
+          text-align: center;
+          color: white;
+          font-weight: bold;
+        }
+    </style>
+    <title>MovieFlix</title>
+  </head>
+  <body>
+    <div id="welcome">Welcome to <font id="mf">MovieFlix!</font></div>
+    <div id="hrefs">
+      <a href="{{ url_for('search_fun') }}">Search</a>
+      <a href="{{ url_for('comment_fun') }}">Make a comment</a>
+      <a href="{{ url_for('deletecomment_fun') }}">Delete my comments</a>
+      <a href="{{ url_for('deleteaccount_fun') }}">Delete my account</a>
+    </div>
+    <div id="notice">
+      {% for message in get_flashed_messages() %}
+          <p>{{ message }}</p>
+      {% endfor %}
+    </div>
+  </body>
+</html>

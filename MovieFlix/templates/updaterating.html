@@ -1,0 +1,81 @@
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body {
+        background-image: url("/static/images/enterprise1.jpg");
+        background-size: 100% 100%;
+      }
+      #welcome{
+        text-align:center;
+        font-weight:bold;
+        font-size:400%;
+        width:100%;
+        color: #ccc;
+      }
+      #mf{
+        color:maroon;
+        font-familt:verdana;
+      }
+
+      #signup{
+        padding-top:5%;
+        text-align:center;
+        font-family:verdana;
+        font-weight:bold;
+        color:white;
+        font-size: 150%;
+      }
+
+      #notice{
+        text-align: center;
+        color: white;
+        font-weight: bold;
+      }
+
+
+      a {
+        color: white;
+      }
+    </style>
+    <title>MovieFlix</title>
+  </head>
+  <body>
+
+
+
+    <div class="container">
+    <div id="welcome">Welcome to <font id="mf">MovieFlix!</font></div>
+    <form id = "signup" action="" method="post" role="form">
+      <div class="form-group">
+        <label for="title">Title:</label>
+        <input type="text" class="form-control" id="title" name="title" placeholder="Enter movie title"><br><br>
+
+
+        <label for="year">Year:</label>
+        <input type="text" class="form-control" id="year" name="year" placeholder="Enter movie year"><br><br>
+
+
+
+        <label for="newRating">New rating:</label>
+        <input type="text" class="form-control" id="newRating" name="newRating" placeholder="Enter new rating."><br><br>
+
+
+      </div>
+    <button type="submit" class="btn btn-success">Update</button>
+    </form>
+
+    <div id="notice">
+      {% for message in get_flashed_messages() %}
+          <p>{{ message }}</p>
+      {% endfor %}
+    </div>
+
+
+
+
+
+
+
+  </body>
+</html>
