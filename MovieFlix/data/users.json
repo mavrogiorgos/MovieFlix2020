@@ -1,0 +1,4 @@
+{"name":"Morton Fitzgerald","email":"mortonfitzgerald@ontagene.com","password":"123ab","comments":[{"title":"Avengers","comment":"Good movie","email":"mortonfitzgerald@ontagene.com"}],"category":"user"}
+{"name":"Thomas Shelby","email":"thomas@peaky.com","password":"321a","comments":[{"title":"Avengers","comment":"Nice movie","email":"thomas@peaky"}],"category":"user"}
+{"name":"Arthur Shelby","email":"arthur@peaky.com","password":"321b","comments":[{"title":"Star Trek","comment":"Amazing movie","email":"arthur@peaky.com"}],"category":"user"}
+{"name":"Kostis Mavrogiorgos","email":"kostisbm14@hotmail.gr","password":"111a","comments":[{"title":"Avengers","comment":"The best movie","email":"kostisbm14@hotmail.gr"}],"category":"admin"}

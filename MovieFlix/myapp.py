@@ -9,15 +9,32 @@ from pymongo import MongoClient
 from pymongo.errors import DuplicateKeyError
 from flask import Flask, render_template, flash, request, Markup, session
 from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField
-import time
+import time, os, sys
+sys.path.append('./data')
+import prepare_data
 
 # Connect to our local MongoDB
-client = MongoClient('mongodb://localhost:27017/')
+mongodb_hostname = os.environ.get("MONGO_HOSTNAME","localhost")
+client = MongoClient('mongodb://'+mongodb_hostname+':27017/')
 
 # Choose MovieFlix database
 db = client['MovieFlix']
 users = db['Users']
 movies = db['Movies']
+
+
+#check if data exist
+def check_data():
+    try:
+        if (movies.find({}).count() == 0) and (users.find({}).count() == 0):
+            prepare_data.insert_all_users()
+            prepare_data.insert_all_movies()
+    except Exception as e:
+        print(e)
+        raise e
+    
+
+
 
 # App config.
 app = Flask(__name__)
@@ -741,5 +758,6 @@ def removeactor_fun():
 
     
 if __name__ == "__main__":
-    app.run(debug=True)
+    check_data()
+    app.run(debug=True, host='0.0.0.0', port=5000)
 
